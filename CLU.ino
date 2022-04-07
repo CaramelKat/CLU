@@ -1,5 +1,5 @@
 /**
- * CLU - Codified Likeness Utility 1.02
+ * CLU - Codified Likeness Utility 1.04
  * Script to force the following actions
  * after imaging a machine
  * - Windows Updates fetch and download
@@ -17,7 +17,7 @@
 #define ACTION_DELAY 150
 #define INPUT_DELAY 500
 #define ACTIONS 11
-#define POLICY_WAIT_TIME 45000
+#define POLICY_WAIT_TIME 30000
 #define END_PROGRAM_NAME "Software Center"
 void setup() {}
 void printToPrompt(String input) {
@@ -76,12 +76,25 @@ void loop() {
  DigiKeyboard.sendKeyStroke(KEY_TAB);
  DigiKeyboard.sendKeyStroke(KEY_TAB);
  DigiKeyboard.sendKeyStroke(KEY_ENTER);
-// done!
+// open software center!
  DigiKeyboard.delay(INPUT_DELAY * 2);
  DigiKeyboard.sendKeyStroke(KEY_S, MOD_GUI_LEFT);
  DigiKeyboard.delay(INPUT_DELAY);
  DigiKeyboard.print(END_PROGRAM_NAME);
  DigiKeyboard.delay(INPUT_DELAY * 2);
+ DigiKeyboard.sendKeyStroke(KEY_ENTER);
+// open windows update
+ DigiKeyboard.sendKeyStroke(0);
+ DigiKeyboard.delay(INPUT_DELAY);
+ DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+ DigiKeyboard.delay(INPUT_DELAY);
+ DigiKeyboard.print("control update");
+ DigiKeyboard.sendKeyStroke(KEY_ENTER);
+ DigiKeyboard.delay(4000);
+ DigiKeyboard.sendKeyStroke(KEY_TAB);
+ DigiKeyboard.sendKeyStroke(KEY_TAB);
+ DigiKeyboard.sendKeyStroke(KEY_TAB);
+ DigiKeyboard.sendKeyStroke(KEY_TAB);
  DigiKeyboard.sendKeyStroke(KEY_ENTER);
  for (;;) {/*empty*/}
 }
